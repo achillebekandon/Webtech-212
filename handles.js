@@ -1,5 +1,3 @@
-// ./handles.js
-
 const url = require('url')
 const qs = require('querystring')
 const fs = require('fs')
