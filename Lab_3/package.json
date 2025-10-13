@@ -1,0 +1,30 @@
+{
+  "name": "lab3-express-api",
+  "version": "1.0.0",
+  "description": "API Web créée avec Express dans le cadre du laboratoire 3.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "mocha --exit"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "nodejs",
+    "lab_3"
+  ],
+  "author": "Your_name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.0",
+    "mocha": "^11.7.4",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}
