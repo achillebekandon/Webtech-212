@@ -3,8 +3,15 @@
 Ce dépôt regroupe l’ensemble des travaux pratiques réalisés dans le cadre du cours **Technologies Web**.  
 Chaque laboratoire illustre une étape clé du développement web moderne : du serveur Node.js à la création d’une application complète avec **React** et **Next.js**.
 
+---
 
-# 🧭 Table des matières
+## Auteurs
+  - **Guy SOUMELONG**
+  - **Achille BEKANDON**
+
+---
+
+## 🧭 Table des matières
 
 - [Présentation du projet](#présentation-du-projet)
 - [Structure du dépôt](#structure-du-dépôt)
@@ -17,8 +24,9 @@ Chaque laboratoire illustre une étape clé du développement web moderne : du s
 - [Conventions de commits](#conventions-de-commits)
 - [Auteurs](#auteurs)
 
+---
 
-# 💡 Présentation du projet
+## 💡 Présentation du projet
 
 Ce projet a pour objectif de découvrir et maîtriser progressivement les technologies utilisées dans le développement web moderne :
 
@@ -28,8 +36,9 @@ Ce projet a pour objectif de découvrir et maîtriser progressivement les techno
 
 Chaque lab est indépendant mais s’appuie sur le précédent pour construire une application complète à la fin du cours.
 
+---
 
-# 🗂️ Structure du dépôt
+## 🗂️ Structure du dépôt
 
 ```bash
 Webtech-212/
@@ -50,134 +59,150 @@ Webtech-212/
         ├── public/
         ├── package.json
         └── tsconfig.json
+```
 
+---
 
-# ⚙️ Prérequis
+## ⚙️ Prérequis
 
 Avant de commencer, assurez-vous d’avoir installé :
 
-Node.js
++ [Node.js]
  (v18 ou supérieure)
 
-npm
- ou yarn
++ [npm] ou [yarn]
 
-Git
++ [Git]
 
-(Facultatif) Postman
- pour tester les APIs
++ (Facultatif) [Postman] pour tester les APIs
 
-(Facultatif) VS Code
- ou un éditeur équivalent
++ (Facultatif) [VS Code] ou un éditeur équivalent
 
-# 🚀 Installation
+---
+
+## 🚀 Installation
 
 Clonez le dépôt et installez les dépendances :
 
 ```bash
 git clone https://github.com/achillebekandon/Webtech-212.git
 cd Webtech-212
+```
 
-Pour le Lab 2 :
+**Pour le Lab 2 :**
+```bash
 cd Lab_2
 npm install
 npm run dev
+```
 
-Pour le Lab 3 :
+**Pour le Lab 3 :**
+```bash
 cd Lab_3
 npm install
 npm start
+```
 
-Pour le Lab 4 :
+**Pour le Lab 4 :**
+```bash
 cd Lab_4/client
 npm install
 npm run dev
+```
+---
 
-🧪 Labs détaillés
-🧩 Lab 2 – Node.js & Git
+## 🧪 Labs détaillés
 
-Objectif : Se familiariser avec Node.js et la gestion de version avec Git.
+## 🧩 Lab 2 – Node.js & Git
 
-Travaux réalisés :
+**Objectif :** Se familiariser avec Node.js et la gestion de version avec Git.
 
-Initialisation d’un projet Node.js avec npm init
+**Travaux réalisés :**
 
-Création d’un serveur HTTP basique avec le module http
+- Initialisation d’un projet Node.js avec npm init
 
-Mise en place de routes dynamiques et gestion des paramètres d’URL
+- Création d’un serveur HTTP basique avec le module http
 
-Lecture de fichiers JSON et génération de contenu dynamique
+- Mise en place de routes dynamiques et gestion des paramètres d’URL
 
-Ajout de nodemon pour le rechargement automatique
+- Lecture de fichiers JSON et génération de contenu dynamique
 
-Publication du projet sur GitHub avec un .gitignore adapté
+- Ajout de nodemon pour le rechargement automatique
 
-Résultat attendu :
+- Publication du projet sur GitHub avec un .gitignore adapté
+
+**Résultat attendu :**
 Un serveur Node.js fonctionnel capable de gérer plusieurs routes et de lire des fichiers JSON.
 
-⚙️ Lab 3 – Web API avec Express
+---
 
-Objectif : Apprendre à créer une API REST en utilisant le framework Express.js.
+## ⚙️ Lab 3 – Web API avec Express
 
-Travaux réalisés :
+**Objectif :** Apprendre à créer une API REST en utilisant le framework Express.js.
 
-Refactorisation du code précédent en utilisant Express et le routeur intégré
+**Travaux réalisés :**
 
-Création d’une API REST pour gérer des articles et leurs commentaires
+- Refactorisation du code précédent en utilisant Express et le routeur intégré
 
-Mise en place des routes :
+- Création d’une API REST pour gérer des articles et leurs commentaires
 
-GET /articles → liste les articles
+- Mise en place des routes :
 
-POST /articles → ajoute un article
+   - `GET /articles` → liste les articles
 
-GET /articles/:id → retourne un article spécifique
+   - `POST /articles` → ajoute un article
 
-GET /articles/:id/comments → liste les commentaires d’un article
+   - `GET /articles/:id` → retourne un article spécifique
 
-POST /articles/:id/comments → ajoute un commentaire
+   - `GET /articles/:id/comments` → liste les commentaires d’un article
 
-Introduction aux tests unitaires avec Mocha et SuperTest
+   - `POST /articles/:id/comments` → ajoute un commentaire
 
-Découverte du concept GraphQL
+- Introduction aux tests unitaires avec **Mocha** et **SuperTest**
 
-Résultat attendu :
+- Découverte du concept **GraphQL**
+
+**Résultat attendu :**
 Une API RESTful en Node.js/Express avec endpoints pour manipuler articles et commentaires.
 
-⚛️ Lab 4 – React & Next.js
+---
 
-Objectif : Construire une interface web moderne à l’aide de React et Next.js.
+## ⚛️ Lab 4 – React & Next.js
 
-Travaux réalisés :
+**Objectif :** Construire une interface web moderne à l’aide de **React** et **Next.js.**
 
-Initialisation d’une application Next.js avec npx create-next-app
+**Travaux réalisés :**
 
-Création des pages principales :
+- Initialisation d’une application Next.js avec `npx create-next-app`
 
-/ (Accueil)
+- Création des pages principales :
 
-/about (À propos)
+     - `/` (Accueil)
 
-/contacts
+     - `/about` (À propos)
 
-/articles (Liste d’articles)
+     - `/contacts`
 
-Ajout de composants réutilisables : Header, Footer, Navigation
+     - `/articles` (Liste d’articles)
 
-Implémentation du routing dynamique avec /articles/[articleId]
+- Ajout de composants réutilisables : `Header`, `Footer`, `Navigation`
 
-Découverte des composants React et des props
+- Implémentation du **routing dynamique** avec `/articles/[articleId]`
 
-Résultat attendu :
+- Découverte des composants React et des props
+
+**Résultat attendu :**
 Un squelette de site de blog complet avec pages, navigation et routage dynamique.
 
-🧱 Conventions de commits
+----
 
-Les commits suivent la norme Conventional Commits
-, par exemple :
+## 🧱 Conventions de commits
 
-Type	Exemple	Description
-feat	feat(lab3): ajout des routes articles	Nouvelle fonctionnalité
-fix	fix(api): correction du bug sur POST /articles	Correction de bug
-docs	docs(readme): mise à jour du guide d’installation	Documentation
-chore	chore: suppression des fichiers inutiles	Tâches non liées au code applicatif
+Les commits suivent la norme Conventional Commits suivante:
+
+|Type	|Exemple	|Description|
+|--|--|--|
+|`feat`	|`feat(lab3): ajout des routes articles`	|Nouvelle fonctionnalité|
+|`fix`|	`fix(api): correction du bug sur POST /articles`	|Correction de bug|
+|`docs`|`docs(readme): mise à jour du guide d’installation`	|Documentation|
+|`chore`	|`chore: suppression des fichiers inutiles`	|Tâches non liées au code applicatif
