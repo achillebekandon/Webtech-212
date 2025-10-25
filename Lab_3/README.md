@@ -1,32 +1,14 @@
-\# Lab 3 – API Web avec Node.js et Express
+# Lab 3 – API Web avec Node.js et Express
 
 
 
-\## Description du projet
+## Description du projet
 
 
 
-Ce projet consiste à créer une \*\*API Web\*\* en utilisant \*\*Node.js\*\* et \*\*Express\*\*, avec une base de données codée en dur.  
+Ce projet consiste à créer une **API Web** en utilisant **Node.js** et **Express**, avec une base de données codée en dur.  
 
-Il inclut également des \*\*tests unitaires\*\* avec \*\*Mocha\*\* et \*\*SuperTest\*\*, et prépare le terrain pour l’utilisation de \*\*GraphQL\*\*.  
-
-
-
----
-
-
-
-\## Objectifs
-
-
-
-\- Apprendre la \*\*programmation côté serveur\*\* avec Node.js  
-
-\- Créer un \*\*serveur Web\*\* avec Express  
-
-\- Pratiquer les \*\*tests unitaires\*\* avec Mocha et SuperTest  
-
-\- Découvrir les concepts de \*\*GraphQL\*\*  
+Il inclut également des **tests unitaires** avec **Mocha** et **SuperTest**, et prépare le terrain pour l’utilisation de **GraphQL**.  
 
 
 
@@ -34,11 +16,29 @@ Il inclut également des \*\*tests unitaires\*\* avec \*\*Mocha\*\* et \*\*Super
 
 
 
-\## Fonctionnalités de l’API
+## Objectifs
 
 
 
-\### Routes Articles
+- Apprendre la **programmation côté serveur** avec Node.js  
+
+- Créer un **serveur Web** avec Express  
+
+- Pratiquer les **tests unitaires** avec Mocha et SuperTest  
+
+- Découvrir les concepts de \*\*GraphQL\*\*  
+
+
+
+---
+
+
+
+## Fonctionnalités de l’API
+
+
+
+### Routes Articles
 
 
 
@@ -74,11 +74,11 @@ Il inclut également des \*\*tests unitaires\*\* avec \*\*Mocha\*\* et \*\*Super
 
 
 
-\## Installation
+## Installation
 
 
 
-1\. Cloner le dépôt :
+1. Cloner le dépôt :
 
 
 
@@ -90,9 +90,10 @@ cd Lab\_3
 
 ````
 
+---
 
 
-2\. Installer les dépendances :
+2. Installer les dépendances :
 
 
 
@@ -101,10 +102,10 @@ cd Lab\_3
 npm install
 
 ```
+---
 
 
-
-3\. Lancer le serveur en développement :
+3. Lancer le serveur en développement :
 
 
 
@@ -114,9 +115,9 @@ npm run dev
 
 ```
 
+---
 
-
-Le serveur écoute par défaut sur \*\*\[http://localhost:4000](http://localhost:4000)\*\*.
+Le serveur écoute par défaut sur **[http://localhost:4000](http://localhost:4000)**.
 
 
 
@@ -124,7 +125,7 @@ Le serveur écoute par défaut sur \*\*\[http://localhost:4000](http://localhost
 
 
 
-\## Tests
+## Tests
 
 
 
@@ -140,9 +141,9 @@ npm test
 
 
 
-\* Vérifie les routes articles et commentaires
+* Vérifie les routes articles et commentaires
 
-\* Assure que les réponses HTTP et le format JSON sont corrects
+* Assure que les réponses HTTP et le format JSON sont corrects
 
 
 
@@ -150,19 +151,19 @@ npm test
 
 
 
-\## Utilisation
+## Utilisation
 
 
 
-\* Pour tester l’API, tu peux utiliser :
+* Pour tester l’API, tu peux utiliser :
 
 
 
-&nbsp; \* \*\*Postman\*\*
+&nbsp; * **Postman**
 
-&nbsp; \* \*\*curl\*\*
+&nbsp; * **curl**
 
-&nbsp; \* \*\*Swagger Inspector\*\*
+&nbsp; * **Swagger Inspector**
 
 
 
@@ -182,43 +183,24 @@ curl http://localhost:4000/api/articles
 
 
 
-\## Statut
+## Statut
 
 
 
 ✅ Projet fonctionnel : toutes les routes articles et commentaires sont implémentées et testées.
 
-⚠️ Bonus : intégration de GraphQL à venir.
+⚠️ Comme Bonus : intégration de GraphQL à venir.
 
-
-
+Pour créer le fichier dans ton projet :  
+```bash
+touch README.md
 ````
-
-
 
 ---
 
-
-
-Pour créer le fichier dans ton projet :  
-
-
-
-```bash
-
-touch README.md
-
-````
-
-
-
 Puis colle le contenu ci-dessus dedans.
 
-
-
 Après ça, tu peux l’ajouter à Git et faire un commit comme ceci :
-
-
 
 ```bash
 
