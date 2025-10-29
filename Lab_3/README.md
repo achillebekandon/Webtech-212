@@ -43,13 +43,9 @@ Il inclut également des **tests unitaires** avec **Mocha** et **SuperTest**, et
 
 
 | Méthode | Route | Description |
-
 |---------|-------|------------|
-
 | GET | `/api/articles` | Lister tous les articles |
-
 | POST | `/api/articles` | Ajouter un nouvel article |
-
 | GET | `/api/articles/:articleId` | Obtenir un article par ID |
 
 
@@ -59,13 +55,9 @@ Il inclut également des **tests unitaires** avec **Mocha** et **SuperTest**, et
 
 
 | Méthode | Route | Description |
-
 |---------|-------|------------|
-
 | GET | `/api/articles/:articleId/comments` | Lister tous les commentaires d’un article |
-
 | POST | `/api/articles/:articleId/comments` | Ajouter un commentaire à un article |
-
 | GET | `/api/articles/:articleId/comments/:commentId` | Obtenir un commentaire spécifique |
 
 
