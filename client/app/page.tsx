@@ -1,103 +1,95 @@
-import Image from "next/image";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+
+// Métadonnées pour le SEO de la page d'accueil
+export const metadata: Metadata = {
+  title: 'Maillots LaLiga EA Sports Officiels | Boutique Foot Liga',
+  description: 'Achetez les maillots de foot officiels de LaLiga EA Sports. Découvrez les dernières tenues de Real Madrid, FC Barcelone, Atlético de Madrid et plus encore.',
+};
+
+// Vérifiez que ces chemins d'accès correspondent exactement aux fichiers dans /public/images
+const STAR_PLAYERS = [
+  { name: "V. Júnior", club: "Real Madrid", description: "Vitesse et flair, l'étincelle brésilienne.", imageUrl: "/images/vini_jr.png" },
+  { name: "R. Lewandowski", club: "FC Barcelona", description: "Le buteur implacable, machine à buts.", imageUrl: "/images/lewandowski.png" },
+  { name: "A. Griezmann", club: "Atlético de Madrid", description: "Le maestro français, âme de l'équipe.", imageUrl: "/images/griezmann.png" },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-[calc(100vh-160px)]"> 
+      
+      {/* 1. Section Héros */}
+      <section className="text-center py-20 md:py-32 bg-gray-900 text-white shadow-2xl">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+          Vivez la passion <span className="text-yellow-400">LaLiga EA Sports</span>
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+          Découvrez les maillots officiels des plus grandes stars du football espagnol. 
+          Votre club, votre passion.
+        </p>
+        
+        <Link 
+          href="/teams" 
+          className="inline-block px-10 py-4 text-lg font-bold bg-red-600 text-white rounded-full 
+                     hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl uppercase tracking-wider"
+        >
+          Découvrir les Équipes
+        </Link>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* 2. Mise en Lumière des Stars (Correction de l'affichage des photos) */}
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white border-b-4 border-red-600 inline-block px-4 pb-1">
+          Les Phares de la Liga
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {STAR_PLAYERS.map((player, index) => (
+            <div 
+              key={index} 
+              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg 
+                         hover:shadow-2xl transition duration-500 transform hover:translate-y-[-5px]
+                         border-t-4 border-yellow-500"
+            >
+              {/* ----------------------------------------------------------- */}
+              {/* CORRECTION : Ajout de la classe 'relative' ici ! */}
+              <div className="relative h-40 w-full mb-4 overflow-hidden">
+                <Image
+                  src={player.imageUrl}
+                  alt={`Photo de ${player.name} (${player.club})`}
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="rounded-lg object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              {/* ----------------------------------------------------------- */}
+              
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{player.name}</h3>
+              <p className="text-red-600 font-semibold mb-2">{player.club}</p>
+              <p className="text-gray-600 dark:text-gray-400">{player.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* 3. CTA Final */}
+      <section className="py-16 text-center bg-gray-100 dark:bg-gray-700">
+        <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+          Ne Manquez Aucune Tenue Officielle !
+        </h2>
+        <p className="text-lg mb-8 text-gray-700 dark:text-gray-300">
+          Maillots domicile, extérieur et third disponibles pour chaque équipe.
+        </p>
+        <Link 
+          href="/teams" 
+          className="inline-block px-8 py-3 text-lg font-medium bg-yellow-500 text-gray-900 rounded-md 
+                     hover:bg-yellow-400 transition duration-300 shadow-md"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Voir tous les Maillots
+        </Link>
+      </section>
+      
     </div>
   );
 }
