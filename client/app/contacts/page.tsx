@@ -1,22 +1,50 @@
-import { Metadata } from 'next';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Contactez-Nous | Maillots LaLiga',
-  description: 'Posez-nous vos questions sur nos maillots de LaLiga EA Sports via notre formulaire de contact.',
-};
+//import { Metadata } from "next";
+import { useState } from "react";
+
+
 
 export default function Contacts() {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify({ name, email, message }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      setStatus("✅ Message envoyé avec succès !");
+      e.target.reset();
+    } else {
+      setStatus("❌ Erreur lors de l’envoi.");
+    }
+  };
+
   return (
     <div className="max-w-2xl mx-auto py-12 px-6">
       <h1 className="text-4xl font-bold text-center mb-8">Contactez-Nous</h1>
       <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-8">
-        Une question ? Remplissez le formulaire ci-dessous et nous reviendrons vers vous.
+        Une question ? Remplissez le formulaire ci-dessous et nous reviendrons
+        vers vous.
       </p>
 
       {/* Formulaire stylisé avec Tailwind */}
-      <form action="#" method="POST" className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-800 dark:text-gray-200">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-800 dark:text-gray-200"
+          >
             Votre Nom
           </label>
           <input
@@ -27,9 +55,12 @@ export default function Contacts() {
             className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-800 dark:text-gray-200">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-800 dark:text-gray-200"
+          >
             Votre Email
           </label>
           <input
@@ -42,7 +73,10 @@ export default function Contacts() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-800 dark:text-gray-200">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-800 dark:text-gray-200"
+          >
             Votre Message
           </label>
           <textarea
@@ -62,6 +96,12 @@ export default function Contacts() {
             Envoyer le Message
           </button>
         </div>
+
+        {status && (
+          <p className="text-center text-sm font-medium mt-2">
+            {status}
+          </p>
+        )}
       </form>
     </div>
   );

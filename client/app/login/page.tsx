@@ -1,12 +1,35 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
+"use client"; // ✅ nécessaire pour useState et navigation client
 
-export const metadata: Metadata = {
-  title: 'Connexion | Maillots LaLiga',
-  description: 'Connectez-vous à votre compte pour accéder à l\'historique de vos commandes de maillots de LaLiga EA Sports.',
-};
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { createClient } from "@/utils/supabase/client"; // Assure-toi que ce fichier existe
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg(null);
+
+    // 🔑 Vérification de l'email et du mot de passe avec Supabase
+    const { error } = await createClient().auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setErrorMsg(error.message); // Affiche le message d'erreur
+      return;
+    }
+
+    // ✅ Redirection vers la page principale
+    router.push("/");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white dark:bg-gray-800 p-10 rounded-xl shadow-2xl">
@@ -24,7 +47,7 @@ export default function LoginPage() {
         </div>
 
         {/* Formulaire de Connexion */}
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             
@@ -37,6 +60,8 @@ export default function LoginPage() {
                 type="email"
                 autoComplete="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white dark:bg-gray-700 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="Adresse Email"
               />
@@ -51,6 +76,8 @@ export default function LoginPage() {
                 type="password"
                 autoComplete="current-password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white dark:bg-gray-700 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="Mot de passe"
               />
@@ -65,6 +92,9 @@ export default function LoginPage() {
               </a>
             </div>
           </div>
+
+          {/* Message d'erreur */}
+          {errorMsg && <p className="text-red-500 text-center text-sm">{errorMsg}</p>}
 
           <div>
             <button
